@@ -20,7 +20,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/inter_bold"
-            android:text="Edit task"
+            android:text="Edit/delete task"
             android:textColor="#fdfdfd"
             android:textSize="35sp"
             android:textStyle="bold" />
@@ -78,17 +78,37 @@
             android:background="@color/white"
             android:timePickerMode="spinner" />
 
-        <Button
-            android:id="@+id/saveTaskButton"
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+        <LinearLayout
             android:layout_marginTop="30dp"
-            android:backgroundTint="#e2a600"
-            android:text="edit"
-            android:textColor="#5e4602"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <Button
+                android:id="@+id/saveTaskButton"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#e2a600"
+                android:text="edit"
+                android:textColor="#5e4602"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                />
+
+            <Button
+                android:id="@+id/deleteTaskButton"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#e2a600"
+                android:text="delete"
+                android:textColor="#5e4602"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginLeft="25dp"/>
+
+
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

@@ -33,6 +33,7 @@ class EditTaskActivity : AppCompatActivity() {
         val datePicker: DatePicker = findViewById(R.id.editTaskDatePicker)
         val timePicker: TimePicker = findViewById(R.id.editTaskTimePicker)
         val saveButton: Button = findViewById(R.id.saveTaskButton)
+        val deleteButton: Button = findViewById(R.id.deleteTaskButton)
 
         // Get task details from intent
         val taskId = intent.getIntExtra("task_id", 0)
@@ -59,6 +60,17 @@ class EditTaskActivity : AppCompatActivity() {
                 finish()
             } else {
                 Toast.makeText(this, "Failed to update task", Toast.LENGTH_SHORT).show()
+            }
+            finish()
+        }
+
+        deleteButton.setOnClickListener {
+            val rowsUpdated = dbHelper.deleteTask(taskId)
+            if (rowsUpdated > 0) {
+                Toast.makeText(this, "Task deleted successfully", Toast.LENGTH_SHORT).show()
+                finish()
+            } else {
+                Toast.makeText(this, "Failed to delete task", Toast.LENGTH_SHORT).show()
             }
             finish()
         }

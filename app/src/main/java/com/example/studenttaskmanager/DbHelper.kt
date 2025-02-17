@@ -29,6 +29,10 @@ class DbHelper(val context: Context, factory: SQLiteDatabase.CursorFactory?) :
         db.close()
     }
 
+    fun deleteTask(taskId: Int): Int {
+        val db = this.writableDatabase
+        return db.delete("tasks", "id = ?", arrayOf(taskId.toString()))    }
+
     fun getAllTasks(): List<Task> {
         val tasks = mutableListOf<Task>()
         val db = readableDatabase
