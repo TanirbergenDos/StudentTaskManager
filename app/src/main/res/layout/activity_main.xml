@@ -7,7 +7,9 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="#201E28"
+    >
 
 
     <!-- Header Layout -->
@@ -23,12 +25,12 @@
             android:id="@+id/settings_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@android:drawable/ic_menu_preferences"
             android:contentDescription="Settings"
             android:layout_gravity="start"
             android:minHeight="48dp"
-            android:minWidth="48dp" />
+            android:minWidth="48dp"
+            android:background="#35333E" />
 
         <!-- Title -->
         <TextView
@@ -39,19 +41,22 @@
             android:text="Task Manager"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textColor="#fdfdfd"
+            />
 
         <!-- Add Task Button -->
+        <!--            android:background="?attr/selectableItemBackgroundBorderless"-->
         <ImageButton
             android:id="@+id/add_task_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@android:drawable/ic_input_add"
             android:contentDescription="Add Task"
             android:layout_gravity="end"
             android:minHeight="48dp"
-            android:minWidth="48dp" />
+            android:minWidth="48dp"
+            android:background="#35333E" />
     </LinearLayout>
 
     <!-- Divider -->
@@ -76,5 +81,6 @@
         android:id="@+id/task_list_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible" />
+        android:visibility="visible"
+        />
 </LinearLayout>

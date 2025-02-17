@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="8dp"
-    android:background="#FFFFFF"
+    android:background="#35333E"
     android:layout_marginBottom="8dp">
 
     <TextView
@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:text="Task Title" />
+        android:text="Task Title"
+        android:textColor="#fdfdfd" />
 
     <TextView
         android:id="@+id/task_description"
@@ -22,7 +23,9 @@
         android:layout_height="wrap_content"
         android:textSize="14sp"
         android:text="Task Description"
-        android:layout_marginTop="4dp" />
+        android:layout_marginTop="4dp"
+        android:textColor="#fdfdfd"
+        />
 
     <TextView
         android:id="@+id/task_due_date_time"
@@ -31,7 +34,8 @@
         android:textSize="12sp"
         android:text="Deadline"
         android:layout_marginTop="4dp"
-        android:textColor="#757575" />
+        android:textColor="#fdfdfd" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,14 +47,22 @@
             android:layout_height="wrap_content"
             android:text="Edit"
             android:layout_gravity="start"
-            android:layout_marginEnd="10dp" />
+            android:layout_marginEnd="10dp"
+            android:textColor="#5e4602"
+            android:backgroundTint="#e2a600"
+
+            />
 
         <Button
             android:id="@+id/buttonNotification"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:text="Notificate" />
+            android:text="Notificate"
+            android:textColor="#5e4602"
+            android:backgroundTint="#e2a600"
+
+            />
 
     </LinearLayout>
 
