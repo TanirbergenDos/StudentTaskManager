@@ -17,6 +17,7 @@
         android:text="Notify before:"
         android:textSize="18sp"
         android:textColor="#fdfdfd"
+        android:layout_marginStart="5dp"
         />
 
     <EditText
@@ -31,11 +32,21 @@
         android:textColor="#fdfdfd"
         android:textColorHint="#6a6a6a" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp"
+        android:text="Sorting:"
+        android:textSize="18sp"
+        android:textColor="#fdfdfd"
+        android:layout_marginStart="5dp"
+        />
+
     <Spinner
         android:id="@+id/sortingSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:minHeight="48dp"
         android:background="#B3B3B3"
         android:popupBackground="#B3B3B3"
