@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 
 class DbHelper(val context: Context, factory: SQLiteDatabase.CursorFactory?) :
     SQLiteOpenHelper(context, "app", factory, 1) {
@@ -52,6 +53,35 @@ class DbHelper(val context: Context, factory: SQLiteDatabase.CursorFactory?) :
         cursor.close()
         return tasks
     }
+
+    fun getTasksSortedBy(sortType: Int): List<Task> {
+        val tasks = mutableListOf<Task>()
+        val db = readableDatabase
+        val orderBy = when (sortType) {
+            0 -> "id DESC"  // Newest to Oldest
+            1 -> "id ASC"   // Oldest to Newest
+            2 -> "due_date_time ASC" // Closest to Deadline
+            3 -> "due_date_time DESC" // Furthest to Deadline
+            else -> "id DESC" // Default to newest
+        }
+
+        val cursor = db.rawQuery("SELECT * FROM tasks ORDER BY $orderBy", null)
+
+        if (cursor.moveToFirst()) {
+            do {
+                val task = Task(
+                    id = cursor.getInt(cursor.getColumnIndexOrThrow("id")),
+                    title = cursor.getString(cursor.getColumnIndexOrThrow("title")),
+                    desc = cursor.getString(cursor.getColumnIndexOrThrow("description")) ?: "",
+                    dueDateTime = cursor.getString(cursor.getColumnIndexOrThrow("due_date_time"))
+                )
+                tasks.add(task)
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        return tasks
+    }
+
 
     fun updateTask(task: Task): Int {
         val db = writableDatabase

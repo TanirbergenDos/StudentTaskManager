@@ -59,7 +59,9 @@ class MainActivity : AppCompatActivity() {
 
         // Fetch tasks from the database
         val db = DbHelper(this, null)
-        val tasks = db.getAllTasks()
+        val sharedPreferences = getSharedPreferences("app_settings", MODE_PRIVATE)
+        val sortType = sharedPreferences.getInt("Sorting", 0)
+        val tasks = db.getTasksSortedBy(sortType)
 
         // Set up RecyclerView
         val taskAdapter = TaskAdapter(this, tasks)
@@ -76,12 +78,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun refreshTaskList() {
         val db = DbHelper(this, null)
-        val tasks = db.getAllTasks()
+        val sharedPreferences = getSharedPreferences("app_settings", MODE_PRIVATE)
+        val sortType = sharedPreferences.getInt("Sorting", 0)
+        val tasks = db.getTasksSortedBy(sortType)
         val taskAdapter = TaskAdapter(this, tasks)
         val taskRecyclerView = findViewById<RecyclerView>(R.id.task_list_recycler_view)
         taskRecyclerView.adapter = taskAdapter
     }
-
 
 
 

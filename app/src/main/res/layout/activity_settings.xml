@@ -31,6 +31,16 @@
         android:textColor="#fdfdfd"
         android:textColorHint="#6a6a6a" />
 
+    <Spinner
+        android:id="@+id/sortingSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:minHeight="48dp"
+        android:background="#B3B3B3"
+        android:popupBackground="#B3B3B3"
+        />
+
     <Button
         android:id="@+id/saveSettingsButton"
         android:layout_width="match_parent"
